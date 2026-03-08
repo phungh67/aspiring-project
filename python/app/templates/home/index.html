@@ -6,8 +6,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
-  <link href="css/nyan-cat.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/nyan-cat.css' )}}" rel="stylesheet">
 </head>
 
 <body>
@@ -25,9 +25,8 @@
     <h3 class="STARDUST1">2026</h3>
     <h1 class="STARDUST2">Huy Hoang &amp; Hebe Thanh Ngan</h1>
     <h3 class="STARDUST3">L O V E <strong>❤</strong> Y O U</h3>
-    <img class="img" src="EDIT_ME.png" alt="JUNO_OKYO" />
 
-    <a href="letters.html" class="letter-btn">Read My Daily Letters</a>
+    <a href="{{ url_for('letter.get_letter') }}" class="letter-btn">Read My Daily Letters</a>
     <a href="routine.html" class="letter-btn">View My Routine</a>
 
     <canvas id="pinkboard"></canvas>
@@ -64,7 +63,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="js/universe.js"></script>
+  <script src="{{ url_for('static', filename='js/universe.js' )}}"></script>
 
   <script>
     const BUCKET_URL = "https://my-span-tree-assets.s3.us-east-1.amazonaws.com";

@@ -1,11 +1,12 @@
 from flask import Flask
-from app.routes import blueprints
+from app.blueprints.home import home_bp
+from app.blueprints.letter import letter_bp
 
 def create_app():
     app = Flask(__name__)
 
     # register all blueprints
-    for blueprint in blueprints:
-        app.register_blueprint(blueprint)
+    app.register_blueprint(home_bp)
+    app.register_blueprint(letter_bp)
 
     return app
