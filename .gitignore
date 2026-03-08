@@ -1,2 +1,4 @@
 # ignore the venv from python
 python/sandbox/*
+python/app/*/__pycache__
+python/app/__pycache__
