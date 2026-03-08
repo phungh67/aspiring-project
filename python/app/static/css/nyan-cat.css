@@ -1,0 +1,339 @@
+.cat, .poptart, .head, .feet, .tail, .rainbow, .sprite, .stars li, .stars li i {
+  position: absolute;
+  background-repeat: no-repeat;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-timing-function: step-end;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cat {
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  animation-name: catCycle;
+  animation-duration: 0.5s;
+}
+
+@keyframes catCycle {
+  0%, 100% {
+    margin-top: -100px;
+  }
+  33.3% {
+    margin-top: -90px;
+  }
+}
+.poptart {
+  left: 0;
+  top: 0;
+  width: 210px;
+  height: 180px;
+  background-image: linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, #f39 0%, #f39 100%), linear-gradient(to right, transparent 0%, transparent 9.5238095238%, #f9f 9.5238095238%, #f9f 90.4761904762%, transparent 90.4761904762%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, #f9f 14.2857142857%, #f9f 85.7142857143%, transparent 85.7142857143%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 19.0476190476%, #f9f 19.0476190476%, #f9f 80.9523809524%, transparent 80.9523809524%, transparent 100%), linear-gradient(to right, black 0%, black 4.7619047619%, #fc9 4.7619047619%, #fc9 95.2380952381%, black 95.2380952381%, black 100%), linear-gradient(to right, transparent 0%, transparent 4.7619047619%, black 4.7619047619%, black 9.5238095238%, #fc9 9.5238095238%, #fc9 90.4761904762%, black 90.4761904762%, black 95.2380952381%, transparent 90.4761904762%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 9.5238095238%, black 9.5238095238%, black 90.4761904762%, transparent 90.4761904762%, transparent 100%);
+  background-position: 90px 30px, 120px 30px, 40px 40px, 160px 50px, 80px 70px, 50px 90px, 90px 100px, 30px 110px, 70px 130px, 40px 140px, 110px 140px, 0 40px, 0 30px, 0 20px, 0 20px, 0 10px, 0 0;
+  background-size: 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 100% 100px, 100% 120px, 100% 140px, 100% 140px, 100% 160px, 100% 100%;
+}
+
+.head {
+  left: 100px;
+  top: 50px;
+  width: 160px;
+  height: 130px;
+  background-image: linear-gradient(to right, transparent 0%, transparent 12.5%, black 12.5%, black 25%, transparent 25%, transparent 75%, black 75%, black 87.5%, transparent 87.5%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 6.25%, black 6.25%, black 12.5%, #999 12.5%, #999 25%, black 25%, black 31.25%, transparent 31.25%, transparent 68.75%, black 68.75%, black 75%, #999 75%, #999 87.5%, black 87.5%, black 93.75%, transparent 93.75%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 6.25%, black 6.25%, black 12.5%, #999 12.5%, #999 31.25%, black 31.25%, black 37.5%, transparent 37.5%, transparent 62.5%, black 62.5%, black 68.75%, #999 68.75%, #999 87.5%, black 87.5%, black 93.75%, transparent 93.75%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 6.25%, black 6.25%, black 12.5%, #999 12.5%, #999 37.5%, black 37.5%, black 62.5%, #999 62.5%, #999 87.5%, black 87.5%, black 93.75%, transparent 93.75%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 6.25%, black 6.25%, black 12.5%, #999 12.5%, #999 87.5%, black 87.5%, black 93.75%, transparent 93.75%, transparent 100%), linear-gradient(to right, black 0%, black 6.25%, #999 6.25%, #999 93.75%, black 93.75%, black 100%), linear-gradient(to right, black 0%, black 6.25%, #999 6.25%, #999 25%, white 25%, white 31.25%, black 31.25%, black 37.5%, #999 37.5%, #999 68.75%, white 68.75%, white 75%, black 75%, black 81.25%, #999 81.25%, #999 93.75%, black 93.75%, black 100%), linear-gradient(to right, black 0%, black 6.25%, #999 6.25%, #999 25%, black 25%, black 37.5%, #999 37.5%, #999 56.25%, black 56.25%, black 62.5%, #999 62.5%, #999 68.75%, black 68.75%, black 81.25%, #999 81.25%, #999 93.75%, black 93.75%, black 100%), linear-gradient(to right, black 0%, black 6.25%, #999 6.25%, #999 12.5%, #f99 12.5%, #f99 25%, #999 25%, #999 81.25%, #f99 81.25%, #f99 93.75%, black 93.75%, black 100%), linear-gradient(to right, black 0%, black 6.25%, #999 6.25%, #999 12.5%, #f99 12.5%, #f99 25%, #999 25%, #999 31.25%, black 31.25%, black 37.5%, #999 37.5%, #999 50%, black 50%, black 56.25%, #999 56.25%, #999 68.75%, black 68.75%, black 75%, #999 75%, #999 81.25%, #f99 81.25%, #f99 93.75%, black 93.75%, black 100%), linear-gradient(to right, transparent 0%, transparent 6.25%, black 6.25%, black 12.5%, #999 12.5%, #999 31.25%, black 31.25%, black 75%, #999 75%, #999 87.5%, black 87.5%, black 93.75%, transparent 93.75%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 12.5%, black 12.5%, black 18.75%, #999 18.75%, #999 81.25%, black 81.25%, black 87.5%, transparent 87.5%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 18.75%, black 18.75%, black 81.25%, transparent 81.25%, transparent 100%);
+  background-position: 0 0, 0 10px, 0 20px, 0 30px, 0 40px, 0 50px, 0 60px, 0 70px, 0 80px, 0 90px, 0 100px, 0 110px, 0 120px;
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  animation-name: headCycle;
+  animation-duration: 0.5s;
+}
+
+@keyframes headCycle {
+  0%, 100% {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  16.7% {
+    margin-left: 10px;
+    margin-top: 0;
+  }
+  66.7% {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  83.3% {
+    margin-left: 0;
+    margin-top: -10px;
+  }
+}
+.feet {
+  width: 240px;
+  height: 50px;
+  overflow: hidden;
+  left: -20px;
+  top: 150px;
+  animation-name: feetCycle;
+  animation-duration: 0.5s;
+}
+
+.feet .sprite {
+  top: 0;
+  width: 240px;
+  height: 150px;
+  background-image: linear-gradient(to right, transparent 0%, transparent 8.3333333333%, black 8.3333333333%, black 16.6666666667%, #999 16.6666666667%, #999 20.8333333333%, transparent 20.8333333333%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 4.1666666667%, black 4.1666666667%, black 12.5%, #999 12.5%, #999 25%, transparent 25%, transparent 79.1666666667%, #999 79.1666666667%, #999 91.6666666667%, black 91.6666666667%, black 95.8333333333%, transparent 95.8333333333%, transparent 100%), linear-gradient(to right, black 0%, black 4.1666666667%, #999 4.1666666667%, #999 16.6666666667%, black 16.6666666667%, black 25%, #999 25%, #999 41.6666666667%, black 41.6666666667%, black 45.8333333333%, transparent 45.8333333333%, transparent 58.3333333333%, black 58.3333333333%, black 62.5%, #999 62.5%, #999 75%, black 75%, black 83.3333333333%, #999 83.3333333333%, #999 95.8333333333%, black 95.8333333333%, black 100%), linear-gradient(to right, black 0%, black 4.1666666667%, #999 4.1666666667%, #999 12.5%, black 12.5%, black 20.8333333333%, transparent 20.8333333333%, transparent 25%, black 25%, black 29.1666666667%, #999 29.1666666667%, #999 37.5%, black 37.5%, black 41.6666666667%, transparent 41.6666666667%, transparent 62.5%, black 62.5%, black 66.6666666667%, #999 66.6666666667%, #999 75%, black 75%, black 79.1666666667%, transparent 79.1666666667%, transparent 83.3333333333%, black 83.3333333333%, black 87.5%, #999 87.5%, #999 95.8333333333%, black 95.8333333333%, black 100%), linear-gradient(to right, black 0%, black 16.6666666667%, transparent 16.6666666667%, transparent 25%, black 25%, black 37.5%, transparent 33.3333333333%, transparent 66.6666666667%, black 66.6666666667%, black 79.1666666667%, transparent 79.1666666667%, transparent 87.5%, black 87.5%, black 95.8333333333%, transparent 95.8333333333%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 8.3333333333%, black 8.3333333333%, black 16.6666666667%, #999 16.6666666667%, #999 20.8333333333%, transparent 20.8333333333%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 4.1666666667%, black 4.1666666667%, black 8.3333333333%, #999 8.3333333333%, #999 25%, transparent 25%, transparent 79.1666666667%, #999 79.1666666667%, #999 91.6666666667%, black 91.6666666667%, black 95.8333333333%, transparent 95.8333333333%, transparent 100%), linear-gradient(to right, black 0%, black 4.1666666667%, #999 4.1666666667%, #999 16.6666666667%, black 16.6666666667%, black 25%, #999 25%, #999 37.5%, black 37.5%, black 41.6666666667%, transparent 41.6666666667%, transparent 58.3333333333%, black 58.3333333333%, black 62.5%, #999 62.5%, #999 75%, black 75%, black 83.3333333333%, #999 83.3333333333%, #999 95.8333333333%, black 95.8333333333%, black 100%), linear-gradient(to right, black 0%, black 4.1666666667%, #999 4.1666666667%, #999 12.5%, black 12.5%, black 16.6666666667%, transparent 16.6666666667%, transparent 20.8333333333%, black 20.8333333333%, black 25%, #999 25%, #999 33.3333333333%, black 33.3333333333%, black 37.5%, transparent 37.5%, transparent 62.5%, black 62.5%, black 66.6666666667%, #999 66.6666666667%, #999 75%, black 75%, black 79.1666666667%, transparent 79.1666666667%, transparent 83.3333333333%, black 83.3333333333%, black 87.5%, #999 87.5%, #999 95.8333333333%, black 95.8333333333%, black 100%), linear-gradient(to right, black 0%, black 12.5%, transparent 12.5%, transparent 25%, black 25%, black 37.5%, transparent 37.5%, transparent 66.6666666667%, black 66.6666666667%, black 79.1666666667%, transparent 79.1666666667%, transparent 87.5%, black 87.5%, black 100%), linear-gradient(to right, transparent 0%, transparent 8.3333333333%, black 8.3333333333%, black 16.6666666667%, #999 16.6666666667%, #999 20.8333333333%, transparent 20.8333333333%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 4.1666666667%, black 4.1666666667%, black 8.3333333333%, #999 8.3333333333%, #999 25%, transparent 25%, transparent 79.1666666667%, #999 79.1666666667%, #999 91.6666666667%, black 91.6666666667%, black 95.8333333333%, transparent 95.8333333333%, transparent 100%), linear-gradient(to right, black 0%, black 4.1666666667%, #999 4.1666666667%, #999 16.6666666667%, black 16.6666666667%, black 25%, #999 25%, #999 37.5%, black 37.5%, black 41.6666666667%, transparent 41.6666666667%, transparent 58.3333333333%, black 58.3333333333%, black 62.5%, #999 62.5%, #999 75%, black 75%, black 83.3333333333%, #999 83.3333333333%, #999 95.8333333333%, black 95.8333333333%, black 100%), linear-gradient(to right, black 0%, black 4.1666666667%, #999 4.1666666667%, #999 12.5%, black 12.5%, black 16.6666666667%, transparent 16.6666666667%, transparent 20.8333333333%, black 20.8333333333%, black 25%, #999 25%, #999 33.3333333333%, black 33.3333333333%, black 37.5%, transparent 37.5%, transparent 62.5%, black 62.5%, black 66.6666666667%, #999 66.6666666667%, #999 75%, black 75%, black 79.1666666667%, transparent 79.1666666667%, transparent 83.3333333333%, black 83.3333333333%, black 87.5%, #999 87.5%, #999 95.8333333333%, black 95.8333333333%, black 100%), linear-gradient(to right, black 0%, black 12.5%, transparent 12.5%, transparent 20.8333333333%, black 20.8333333333%, black 33.3333333333%, transparent 33.3333333333%, transparent 62.5%, black 62.5%, black 75%, transparent 75%, transparent 87.5%, black 87.5%, black 100%);
+  background-position: 0 0, 0 10px, 0 20px, 0 30px, 0 40px, 0 50px, 0 60px, 0 70px, 0 80px, 0 90px, 0 100px, 0 110px, 0 120px, 0 130px, 0 140px;
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  animation-name: feetSpriteCycle;
+  animation-duration: 0.5s;
+}
+
+@keyframes feetCycle {
+  0%, 100% {
+    margin-left: 0;
+  }
+  16.7% {
+    margin-left: 10px;
+  }
+  33.3% {
+    margin-left: 20px;
+  }
+  50% {
+    margin-left: 10px;
+  }
+  66.7% {
+    margin-left: -10px;
+  }
+}
+@keyframes feetSpriteCycle {
+  0%, 100% {
+    top: 0;
+  }
+  16.7% {
+    top: -50px;
+  }
+  83.3% {
+    top: -100px;
+  }
+}
+.tail {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  left: -70px;
+  top: 70px;
+  animation-name: tailCycle;
+  animation-duration: 0.5s;
+}
+
+.tail .sprite {
+  width: 70px;
+  height: 350px;
+  background-image: linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 71.4285714286%, transparent 71.4285714286%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 28.5714285714%, #999 28.5714285714%, #999 57.1428571429%, black 57.1428571429%, black 85.7142857143%, transparent 85.7142857143%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 42.8571428571%, #999 42.8571428571%, #999 71.4285714286%, black 71.4285714286%, black 100%), linear-gradient(to right, transparent 0%, transparent 28.5714285714%, black 28.5714285714%, black 57.1428571429%, #999 57.1428571429%, #999 85.7142857143%, black 85.7142857143%, black 100%), linear-gradient(to right, transparent 0%, transparent 42.8571428571%, black 42.8571428571%, black 71.4285714286%, #999 71.4285714286%, #999 100%), linear-gradient(to right, transparent 0%, transparent 57.1428571429%, black 57.1428571429%, black 100%), linear-gradient(to right, transparent 0%, transparent 85.7142857143%, black 85.7142857143%, black 100%), linear-gradient(to right, transparent 0%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 28.5714285714%, black 28.5714285714%, black 57.1428571429%, transparent 57.1428571429%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 28.5714285714%, #999 28.5714285714%, #999 57.1428571429%, black 57.1428571429%, black 71.4285714286%, transparent 71.4285714286%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 28.5714285714%, #999 28.5714285714%, #999 57.1428571429%, black 57.1428571429%, black 100%), linear-gradient(to right, transparent 0%, transparent 28.5714285714%, black 28.5714285714%, black 42.8571428571%, #999 42.8571428571%, #999 100%), linear-gradient(to right, transparent 0%, transparent 42.8571428571%, black 42.8571428571%, black 71.4285714286%, #999 71.4285714286%, #999 100%), linear-gradient(to right, transparent 0%, transparent 71.4285714286%, black 71.4285714286%, black 100%), linear-gradient(to right, transparent 0%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 85.7142857143%, black 85.7142857143%, black 100%), linear-gradient(to right, transparent 0%, transparent 42.8571428571%, black 42.8571428571%, black 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 42.8571428571%, #999 42.8571428571%, #999 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 28.5714285714%, #999 28.5714285714%, #999 71.4285714286%, black 71.4285714286%, black 100%), linear-gradient(to right, transparent 0%, transparent 28.5714285714%, black 28.5714285714%, black 85.7142857143%, transparent 85.7142857143%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 71.4285714286%, black 71.4285714286%, black 100%), linear-gradient(to right, transparent 0%, transparent 42.8571428571%, black 42.8571428571%, black 71.4285714286%, #999 71.4285714286%, #999 100%), linear-gradient(to right, transparent 0%, transparent 28.5714285714%, black 28.5714285714%, black 42.8571428571%, #999 42.8571428571%, #999 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 28.5714285714%, #999 28.5714285714%, #999 57.1428571429%, black 57.1428571429%, black 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 28.5714285714%, #999 28.5714285714%, #999 57.1428571429%, black 57.1428571429%, black 71.4285714286%, transparent 71.4285714286%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 28.5714285714%, black 28.5714285714%, black 57.1428571429%, transparent 57.1428571429%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 14.2857142857%, black 14.2857142857%, black 71.4285714286%, transparent 71.4285714286%, transparent 100%), linear-gradient(to right, black 0%, black 14.2857142857%, #999 14.2857142857%, #999 57.1428571429%, black 57.1428571429%, black 100%), linear-gradient(to right, black 0%, black 28.5714285714%, #999 28.5714285714%, #999 85.7142857143%, black 85.7142857143%, black 100%), linear-gradient(to right, transparent 0%, transparent 28.5714285714%, black 28.5714285714%, black 85.7142857143%, #999 85.7142857143%, #999 100%), linear-gradient(to right, transparent 0%, transparent 71.4285714286%, black 71.4285714286%, black 100%);
+  background-position: 0 0, 0 10px, 0 20px, 0 30px, 0 40px, 0 50px, 0 60px, 0 70px, 0 80px, 0 90px, 0 100px, 0 110px, 0 120px, 0 130px, 0 140px, 0 150px, 0 160px, 0 170px, 0 180px, 0 190px, 0 200px, 0 210px, 0 220px, 0 230px, 0 240px, 0 250px, 0 260px, 0 270px, 0 280px, 0 290px, 0 300px, 0 310px, 0 320px, 0 330px, 0 340px;
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  animation-name: tailSpriteCycle;
+  animation-duration: 0.5s;
+}
+
+@keyframes tailCycle {
+  0%, 100% {
+    margin-top: 0;
+  }
+  33.3% {
+    margin-top: 10px;
+  }
+  50% {
+    margin-top: 20px;
+  }
+  66.7% {
+    margin-top: -10px;
+  }
+}
+@keyframes tailSpriteCycle {
+  0%, 83.3% {
+    margin-top: 0;
+  }
+  16.7% {
+    margin-top: -70px;
+  }
+  33.3% {
+    margin-top: -140px;
+  }
+  50% {
+    margin-top: -210px;
+  }
+  66.7% {
+    margin-top: -280px;
+  }
+}
+.rainbow {
+  left: 0;
+  right: 50%;
+  top: 50%;
+  margin-top: -90px;
+  height: 190px;
+  overflow: hidden;
+}
+
+.rainbow .sprite {
+  left: 0;
+  right: 80px;
+  top: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, #f00 0%, #f00 50%, transparent 50%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 50%, #f00 50%, #f00 100%), linear-gradient(to right, #f90 0%, #f90 50%, transparent 50%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 50%, #f90 50%, #f90 100%), linear-gradient(to right, #ff0 0%, #ff0 50%, transparent 50%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 50%, #ff0 50%, #ff0 100%), linear-gradient(to right, #3f0 0%, #3f0 50%, transparent 50%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 50%, #3f0 50%, #3f0 100%), linear-gradient(to right, #09f 0%, #09f 50%, transparent 50%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 50%, #09f 50%, #09f 100%), linear-gradient(to right, #63f 0%, #63f 50%, transparent 50%, transparent 100%), linear-gradient(to right, transparent 0%, transparent 50%, #63f 50%, #63f 100%);
+  background-position: 0 0, 0 10px, 0 30px, 0 40px, 0 60px, 0 70px, 0 90px, 0 100px, 0 120px, 0 130px, 0 150px, 0 160px;
+  background-size: 160px 30px;
+  background-repeat: repeat-x;
+  animation-name: rainbowCycle;
+  animation-duration: 1s;
+}
+
+@keyframes rainbowCycle {
+  0%, 33.3%, 66.7%, 100% {
+    left: 0;
+  }
+  16.7%, 50%, 83.3% {
+    left: -90px;
+  }
+}
+/* this prevents the rainbow from peeking out from under the cat's back foot. */
+.rainbow .sprite:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  background: #036;
+}
+
+.stars li {
+  width: 470px;
+  height: 70px;
+  overflow: hidden;
+  margin-left: -40px;
+}
+
+.stars li i {
+  display: block;
+  width: 470px;
+  height: 490px;
+  top: -420px;
+  background-image: linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%), linear-gradient(to right, white 0%, white 100%);
+  background-position: 430px 30px, 350px 90px, 340px 100px, 360px 100px, 350px 110px, 270px 150px, 250px 170px, 280px 170px, 270px 180px, 190px 210px, 160px 240px, 190px 240px, 210px 240px, 190px 260px, 110px 280px, 90px 290px, 130px 290px, 80px 310px, 140px 310px, 90px 330px, 130px 330px, 110px 340px, 30px 350px, 0 380px, 60px 380px, 30px 410px;
+  background-size: 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 20px, 20px 10px, 20px 10px, 10px 20px, 10px 20px, 20px 10px, 10px 10px, 20px 10px, 10px 20px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px;
+  background-repeat: no-repeat;
+  animation-name: starSpriteCycle;
+  animation-duration: 1s;
+}
+
+@keyframes starSpriteCycle {
+  0%, 100% {
+    top: -420px;
+  }
+  50% {
+    top: 0;
+  }
+  58.3% {
+    top: -70px;
+  }
+  66.7% {
+    top: -140px;
+  }
+  75% {
+    top: -210px;
+  }
+  83.3% {
+    top: -280px;
+  }
+  91.7% {
+    top: -350px;
+  }
+}
+.stars li:nth-child(1) {
+  left: 66%;
+  top: 80%;
+}
+.stars li:nth-child(2) {
+  left: 70%;
+  top: 54%;
+}
+.stars li:nth-child(2) i {
+  animation-delay: 0.0833333333s;
+}
+.stars li:nth-child(3) {
+  left: 4%;
+  top: 31%;
+}
+.stars li:nth-child(3) i {
+  animation-delay: 0.1666666667s;
+}
+.stars li:nth-child(4) {
+  left: 49%;
+  top: 12%;
+}
+.stars li:nth-child(4) i {
+  animation-delay: 0.25s;
+}
+.stars li:nth-child(5) {
+  left: 35%;
+  top: 30%;
+}
+.stars li:nth-child(5) i {
+  animation-delay: 0.3333333333s;
+}
+.stars li:nth-child(6) {
+  left: 48%;
+  top: 29%;
+}
+.stars li:nth-child(6) i {
+  animation-delay: 0.4166666667s;
+}
+.stars li:nth-child(7) {
+  left: 22%;
+  top: 70%;
+}
+.stars li:nth-child(7) i {
+  animation-delay: 0.6666666667s;
+}
+.stars li:nth-child(8) {
+  left: 56%;
+  top: 67%;
+}
+.stars li:nth-child(8) i {
+  animation-delay: 0.5833333333s;
+}
+.stars li:nth-child(9) {
+  left: 49%;
+  top: 12%;
+}
+.stars li:nth-child(9) i {
+  animation-delay: 0.6666666667s;
+}
+.stars li:nth-child(10) {
+  left: 9%;
+  top: 92%;
+}
+.stars li:nth-child(10) i {
+  animation-delay: 0.75s;
+}
+.stars li:nth-child(11) {
+  left: 44%;
+  top: 20%;
+}
+.stars li:nth-child(11) i {
+  animation-delay: 0.8333333333s;
+}
+.stars li:nth-child(12) {
+  left: 6%;
+  top: 19%;
+}
+.stars li:nth-child(12) i {
+  animation-delay: 0.9166666667s;
+}/*# sourceMappingURL=nyan-cat.css.map */
