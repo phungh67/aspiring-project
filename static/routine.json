@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "day": "Sunday",
+    "startTime": "14:00",
+    "endTime": "19:00",
+    "title": "Astra Zeneca Health X Her Hackathon",
+    "color": "rgba(255, 65, 125, 0.2)"
+  },
+  {
+    "id": 2,
+    "day": "Sunday",
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "title": "DevOps Pipeline Maintenance",
+    "color": "rgba(9, 159, 255, 0.2)"
+  },
+  {
+    "id": 3,
+    "day": "Monday",
+    "startTime": "13:00",
+    "endTime": "15:00",
+    "title": "Cybersecurity Guest Lectures - AI and Jobs?",
+    "color": "rgba(255, 65, 125, 0.2)"
+  },
+  {
+    "id": 4,
+    "day": "Monday",
+    "startTime": "15:00",
+    "endTime": "16:00",
+    "title": "Walk to Hackathon Site, to broke to purchase ticket",
+    "color": "rgba(51, 255, 87, 0.2)"
+  },
+  {
+    "id": 5,
+    "day": "Monday",
+    "startTime": "17:00",
+    "endTime": "19:00",
+    "title": "Bbi I'm on the stage right now, contact later, love",
+    "color": "rgba(255, 153, 0, 0.2)"
+  },
+  {
+    "id": 6,
+    "day": "Monday",
+    "startTime": "20:00",
+    "endTime": "24:00",
+    "title": "Moutains of assignments and projects",
+    "color": "rgba(153, 51, 255, 0.2)"
+  },
+  {
+    "id": 7,
+    "day": "Tuesday",
+    "startTime": "00:00",
+    "endTime": "04:00",
+    "title": "Still work and sleepy",
+    "color":"rgba(153, 51, 255, 0.2)"
+  },
+  {
+    "id": 8,
+    "day": "Tuesday",
+    "startTime": "13:00",
+    "endTime": "15:00",
+    "title": "Realtime system",
+    "color":"rgba(255, 153, 0, 0.2)"
+  },
+  {
+    "id": 9,
+    "day": "Tuesday",
+    "startTime": "16:00",
+    "endTime": "16:15",
+    "title": "Off-board",
+    "color":"rgba(255, 65, 125, 0.2)"
+  },
+  {
+    "id": 10,
+    "day": "Tuesday",
+    "startTime": "17:00",
+    "endTime": "22:00",
+    "title": "At library bbi",
+    "color":"rgba(51, 255, 87, 0.2)"
+  }
+]

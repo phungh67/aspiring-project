@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Daily Letters</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0b0b0a;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      margin: 50px 0;
+      padding: 0;
+    }
+
+    .header-content {
+      padding: 0 20px;
+      margin-bottom: 40px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      color: #ff417d;
+      text-decoration: none;
+      border: 1px solid #ff417d;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #ff417d;
+      color: #fff;
+    }
+
+    .feed-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-btn {
+      position: absolute;
+      z-index: 10;
+      background-color: rgba(255, 65, 125, 0.2);
+      border: 2px solid #ff417d;
+      color: #fff;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-btn:hover {
+      background-color: #ff417d;
+      box-shadow: 0 0 15px #ff417d;
+    }
+
+    #scroll-left { left: 20px; }
+    #scroll-right { right: 20px; }
+
+    #letters-feed {
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 30px;
+      padding: 20px calc(50vw - 42.5vw);
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    #letters-feed::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 700px) {
+      #letters-feed {
+        padding: 20px calc(50vw - 300px);
+      }
+      #scroll-left { left: 5vw; }
+      #scroll-right { right: 5vw; }
+    }
+
+    .letter-box {
+      flex: 0 0 85vw;
+      max-width: 600px;
+      max-height: 65vh;
+      overflow-y: auto;
+      background: rgba(255, 65, 125, 0.05);
+      border-left: 4px solid #ff417d;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: left;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      scroll-snap-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s forwards;
+      box-sizing: border-box;
+    }
+
+    .letter-box::-webkit-scrollbar { width: 6px; }
+    .letter-box::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 65, 125, 0.5);
+      border-radius: 10px;
+    }
+    .letter-box::-webkit-scrollbar-track { background: transparent; }
+
+    .date {
+      color: #ff417d;
+      font-size: 0.9em;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .letter-image {
+      width: 100%;
+      max-height: 300px; 
+      object-fit: cover; 
+      border-radius: 6px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 65, 125, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      cursor: pointer;
+    }
+
+    .letter-image:hover {
+      transform: scale(1.03); 
+      box-shadow: 0 8px 25px rgba(255, 65, 125, 0.25); 
+      border-color: rgba(255, 65, 125, 0.6); 
+    }
+
+    .content {
+      line-height: 1.8;
+      font-weight: 300;
+      font-size: 1.05em;
+      color: #eaeaea;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #loading {
+      flex: 0 0 100%;
+      font-style: italic;
+      color: #888;
+      text-align: center;
+    }
+
+    /* --- Floating Music Toggle Button CSS --- */
+    #music-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: rgba(255, 65, 125, 0.2);
+      border: 2px solid #ff417d;
+      color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #music-toggle:hover {
+      background-color: #ff417d;
+      box-shadow: 0 0 15px #ff417d;
+    }
+  </style>
+</head>
+
+<body>
+  <audio id="bg-music" crossorigin="anonymous" preload="auto" loop></audio>
+  <button id="music-toggle" style="display: none; z-index: 100000 !important;">🔇</button>
+
+  <div class="container">
+    <div class="header-content">
+      <a href="index.html" class="back-btn">← Back to Our Universe</a>
+      <h2 style="font-weight: 300; margin: 0;">Letters for Hebe</h2>
+    </div>
+
+    <div class="feed-wrapper">
+      <button id="scroll-left" class="nav-btn">❮</button>
+      
+      <div id="letters-feed">
+        <div id="loading">Searching the stars for new messages...</div>
+      </div>
+      
+      <button id="scroll-right" class="nav-btn">❯</button>
+    </div>
+  </div>
+
+  <script>
+    const BUCKET_URL = "https://my-span-tree-assets.s3.us-east-1.amazonaws.com";
+    const PREFIX = "letters/";
+    const AUDIO_PREFIX = "musics/"; // Added for audio fetching
+
+    // Audio elements
+    const audioEl = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-toggle');
+
+    // Fetch the letters
+    async function fetchLetters() {
+      const feed = document.getElementById('letters-feed');
+
+      try {
+        const response = await fetch(`${BUCKET_URL}?list-type=2&prefix=${PREFIX}`);
+        if (!response.ok) throw new Error("Could not access bucket.");
+
+        const xmlText = await response.text();
+        const xmlDoc = new DOMParser().parseFromString(xmlText, "application/xml");
+
+        const keys = Array.from(xmlDoc.querySelectorAll("Contents > Key"))
+          .map(node => node.textContent)
+          .filter(key => key.endsWith('.json'))
+          .sort((a, b) => b.localeCompare(a)); 
+
+        feed.innerHTML = ''; 
+
+        if (keys.length === 0) {
+          feed.innerHTML = '<div style="color: #666; width: 100%; text-align: center;">No letters found today.</div>';
+          return;
+        }
+
+        for (let i = 0; i < keys.length; i++) {
+          const key = keys[i];
+          const letterResponse = await fetch(`${BUCKET_URL}/${key}`);
+          const letterData = await letterResponse.json();
+
+          const formattedParagraphs = letterData.content
+            .map(p => `<p>${p}</p>`)
+            .join('');
+
+          const imageHtml = letterData.imageUrl 
+            ? `<img src="${letterData.imageUrl}" class="letter-image" alt="Letter memory">` 
+            : '';
+
+          const letterBox = document.createElement('div');
+          letterBox.className = 'letter-box';
+          letterBox.style.animationDelay = `${i * 0.2}s`; 
+
+          letterBox.innerHTML = `
+              <div class="date">${letterData.displayDate}</div>
+              ${imageHtml}
+              <div class="content">${formattedParagraphs}</div>
+            `;
+
+          feed.appendChild(letterBox);
+        }
+
+      } catch (error) {
+        console.error("Error fetching letters:", error);
+        feed.innerHTML = '<div style="color: #ff417d; width: 100%; text-align: center;">The connection to the universe was interrupted. Please try again.</div>';
+      }
+    }
+
+    // Initialize Background Music
+    async function initAudio() {
+      try {
+        const response = await fetch(`${BUCKET_URL}?list-type=2&prefix=${AUDIO_PREFIX}`);
+        if (!response.ok) throw new Error(`Could not access bucket. Status: ${response.status}`);
+
+        const xmlText = await response.text();
+        const xmlDoc = new DOMParser().parseFromString(xmlText, "application/xml");
+
+        const keys = Array.from(xmlDoc.querySelectorAll("Contents > Key"))
+          .map(node => node.textContent)
+          .filter(key => {
+            const lowerKey = key.toLowerCase();
+            return lowerKey.endsWith('.mp3') || lowerKey.endsWith('.wav') || lowerKey.endsWith('.m4a');
+          });
+
+        if (keys.length > 0) {
+          audioEl.src = encodeURI(`${BUCKET_URL}/${keys[0]}`);
+          musicBtn.style.display = 'flex';
+        }
+      } catch (error) {
+        console.error("Error fetching music from S3:", error);
+      }
+    }
+
+    // Toggle Play/Pause Logic
+    musicBtn.addEventListener('click', () => {
+      if (!audioEl.src) return;
+
+      if (audioEl.paused) {
+        audioEl.play().then(() => {
+          musicBtn.innerHTML = "🔊";
+        }).catch(err => {
+          console.error("Browser blocked playback:", err);
+        });
+      } else {
+        audioEl.pause();
+        musicBtn.innerHTML = "🔇";
+      }
+    });
+
+    // Carousel button logic
+    document.getElementById('scroll-left').addEventListener('click', () => {
+      const feed = document.getElementById('letters-feed');
+      const scrollAmount = window.innerWidth > 700 ? 630 : window.innerWidth * 0.85;
+      feed.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    document.getElementById('scroll-right').addEventListener('click', () => {
+      const feed = document.getElementById('letters-feed');
+      const scrollAmount = window.innerWidth > 700 ? 630 : window.innerWidth * 0.85;
+      feed.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    // Execute both fetches on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchLetters();
+      initAudio();
+    });
+  </script>
+</body>
+
+</html>

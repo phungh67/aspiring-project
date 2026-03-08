@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/nyan-cat.css" rel="stylesheet">
+</head>
+
+<body>
+  <audio id="bg-music" crossorigin="anonymous" preload="auto" loop></audio>
+
+  <button id="music-toggle" style="display: none;">🔇</button>
+
+  <div class="container2">
+    <div class="content">
+      <canvas id="universe"></canvas>
+    </div>
+  </div>
+
+  <div class="title">
+    <h3 class="STARDUST1">2026</h3>
+    <h1 class="STARDUST2">Huy Hoang &amp; Hebe Thanh Ngan</h1>
+    <h3 class="STARDUST3">L O V E <strong>❤</strong> Y O U</h3>
+    <img class="img" src="EDIT_ME.png" alt="JUNO_OKYO" />
+
+    <a href="letters.html" class="letter-btn">Read My Daily Letters</a>
+    <a href="routine.html" class="letter-btn">View My Routine</a>
+
+    <canvas id="pinkboard"></canvas>
+  </div>
+
+  <div class="nyan-container">
+    <div class="rainbow">
+      <div class="sprite"></div>
+    </div>
+    <ul class="stars">
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+      <li><i></i></li>
+    </ul>
+    <div class="cat">
+      <div class="tail">
+        <div class="sprite"></div>
+      </div>
+      <div class="feet">
+        <div class="sprite"></div>
+      </div>
+      <div class="poptart"></div>
+      <div class="head"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/universe.js"></script>
+
+  <script>
+    const BUCKET_URL = "https://my-span-tree-assets.s3.us-east-1.amazonaws.com";
+    const AUDIO_PREFIX = "musics/";
+
+    const audioEl = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-toggle');
+
+    async function initAudio() {
+      try {
+        console.log("Searching S3 for music files...");
+        const response = await fetch(`${BUCKET_URL}?list-type=2&prefix=${AUDIO_PREFIX}`);
+        if (!response.ok) throw new Error(`Could not access bucket. Status: ${response.status}`);
+
+        const xmlText = await response.text();
+        const xmlDoc = new DOMParser().parseFromString(xmlText, "application/xml");
+
+        // Bulletproof filter: converts key to lowercase first to catch .MP3, .Mp3, .WAV, etc.
+        const keys = Array.from(xmlDoc.querySelectorAll("Contents > Key"))
+          .map(node => node.textContent)
+          .filter(key => {
+            const lowerKey = key.toLowerCase();
+            return lowerKey.endsWith('.mp3') || lowerKey.endsWith('.wav') || lowerKey.endsWith('.m4a');
+          });
+
+        if (keys.length > 0) {
+          console.log(`Music found! Loading: ${keys[1]}`);
+          audioEl.src = `${BUCKET_URL}/${keys[1]}`;
+
+          // Make the button visible once the source is attached
+          musicBtn.style.display = 'flex';
+        } else {
+          console.warn("No compatible audio files (.mp3, .wav, .m4a) were found in the /musics/ folder.");
+        }
+      } catch (error) {
+        console.error("Error fetching music from S3:", error);
+      }
+    }
+
+    // Toggle Play/Pause when the button is clicked
+    musicBtn.addEventListener('click', () => {
+      if (!audioEl.src) return;
+
+      if (audioEl.paused) {
+        // Attempt to play, and catch any browser autoplay blocks
+        audioEl.play().then(() => {
+          musicBtn.innerHTML = "🔊"; // Change to unmuted icon
+        }).catch(err => {
+          console.error("Browser blocked playback:", err);
+        });
+      } else {
+        audioEl.pause();
+        musicBtn.innerHTML = "🔇"; // Change to muted icon
+      }
+    });
+
+    // Run the fetch sequence when the page loads
+    window.addEventListener('DOMContentLoaded', initAudio);
+  </script>
+</body>
+
+</html>

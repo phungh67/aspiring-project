@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Routine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0b0b0a;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      color: #ff417d;
+      text-decoration: none;
+      border: 1px solid #ff417d;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #ff417d;
+      color: #fff;
+    }
+
+    /* CSS Grid Timetable Setup */
+    .timetable-wrapper {
+      overflow-x: auto;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 65, 125, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .timetable {
+      display: grid;
+      min-width: 800px;
+      /* Forces horizontal scroll on small screens */
+      /* 1 column for time labels, 7 columns for days */
+      grid-template-columns: 60px repeat(7, 1fr);
+      /* 1 row for headers, 16 rows for hours (08:00 to 24:00) */
+      grid-template-rows: 50px repeat(16, 60px);
+      gap: 5px;
+    }
+
+    .grid-header {
+      font-weight: 600;
+      color: #ff417d;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .time-label {
+      font-size: 0.75em;
+      color: #888;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-right: 10px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Grid lines for the background */
+    .grid-cell {
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+      border-right: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+
+    /* The actual event blocks */
+    .event-block {
+      border-left: 3px solid #ff417d;
+      border-radius: 4px;
+      padding: 8px;
+      font-size: 0.8em;
+      text-align: left;
+      line-height: 1.4;
+      overflow: hidden;
+      animation: fadeIn 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    .event-time {
+      font-size: 0.85em;
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">← Back to Our Universe</a>
+    <h2 style="font-weight: 300; margin-bottom: 40px;">My Routine</h2>
+
+    <div class="timetable-wrapper">
+      <div class="timetable" id="timetable">
+        <div class="grid-header" style="grid-column: 1; grid-row: 1;">GMT</div>
+        <div class="grid-header" style="grid-column: 2; grid-row: 1;">Mon</div>
+        <div class="grid-header" style="grid-column: 3; grid-row: 1;">Tue</div>
+        <div class="grid-header" style="grid-column: 4; grid-row: 1;">Wed</div>
+        <div class="grid-header" style="grid-column: 5; grid-row: 1;">Thu</div>
+        <div class="grid-header" style="grid-column: 6; grid-row: 1;">Fri</div>
+        <div class="grid-header" style="grid-column: 7; grid-row: 1;">Sat</div>
+        <div class="grid-header" style="grid-column: 8; grid-row: 1;">Sun</div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const START_HOUR = 8; // Calendar starts at 08:00
+    const END_HOUR = 24;  // Calendar ends at Midnight
+
+    const dayMap = { "Monday": 2, "Tuesday": 3, "Wednesday": 4, "Thursday": 5, "Friday": 6, "Saturday": 7, "Sunday": 8 };
+
+    function generateGridBackground() {
+      const timetable = document.getElementById('timetable');
+
+      // Generate time labels
+      for (let hour = START_HOUR; hour < END_HOUR; hour++) {
+        const displayHour = hour < 10 ? `0${hour}:00` : `${hour}:00`;
+        const row = hour - START_HOUR + 2; // +2 offsets for the header row
+
+        const timeLabel = document.createElement('div');
+        timeLabel.className = 'time-label';
+        timeLabel.style.gridColumn = 1;
+        timeLabel.style.gridRow = row;
+        timeLabel.innerText = displayHour;
+        timetable.appendChild(timeLabel);
+
+        // Generate subtle grid cells for the background
+        for (let col = 2; col <= 8; col++) {
+          const cell = document.createElement('div');
+          cell.className = 'grid-cell';
+          cell.style.gridColumn = col;
+          cell.style.gridRow = row;
+          timetable.appendChild(cell);
+        }
+      }
+    }
+
+    async function fetchRoutine() {
+      const timetable = document.getElementById('timetable');
+
+      try {
+        // Change this path if your JSON is hosted on your S3 bucket
+        const response = await fetch(`routine.json?v=${new Date().getTime()}`, {
+          cache: 'no-store'
+        });
+        if (!response.ok) throw new Error("Could not load routine data.");
+
+        const events = await response.json();
+
+        events.forEach((event, index) => {
+          // Parse times (e.g., "09:30" -> 9.5)
+          const startParts = event.startTime.split(':');
+          const endParts = event.endTime.split(':');
+
+          const startDecimal = parseInt(startParts[0]) + (parseInt(startParts[1]) / 60);
+          const endDecimal = parseInt(endParts[0]) + (parseInt(endParts[1]) / 60);
+
+          // Calculate CSS Grid Coordinates
+          const col = dayMap[event.day];
+          const rowStart = startDecimal - START_HOUR + 2;
+          const rowEnd = endDecimal - START_HOUR + 2;
+
+          // Create the HTML Block
+          const eventBlock = document.createElement('div');
+          eventBlock.className = 'event-block';
+          eventBlock.style.gridColumn = col;
+          eventBlock.style.gridRow = `${rowStart} / ${rowEnd}`;
+          eventBlock.style.backgroundColor = event.color || 'rgba(255, 65, 125, 0.2)';
+          eventBlock.style.animationDelay = `${index * 0.1}s`;
+
+          eventBlock.innerHTML = `
+            <div class="event-time">${event.startTime} - ${event.endTime}</div>
+            <div><strong>${event.title}</strong></div>
+          `;
+
+          timetable.appendChild(eventBlock);
+        });
+
+      } catch (error) {
+        console.error("Failed to fetch routine:", error);
+      }
+    }
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      generateGridBackground();
+      fetchRoutine();
+    });
+  </script>
+</body>
+
+</html>
